@@ -58,4 +58,7 @@ export class ServidorService {
 		return this.http.post<String>(this.url + "/Departamento/eliminar", departamento);
 	}
 	
+	buscarPorNombre(nombre: String){
+		return this.http.post<Departamentos>(`${this.url}/Departamento/buscarPorNombre?nombre=${nombre}`, {});
+	}
 }
