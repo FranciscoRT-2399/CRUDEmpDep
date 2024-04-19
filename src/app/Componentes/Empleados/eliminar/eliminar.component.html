@@ -1,1 +1,45 @@
-<p>eliminar works!</p>
+<div class="container">
+	<div class="card">
+		<div class="card-header">
+			<h3> ELIMINACION DE EMPLEADOS </h3>
+		</div>
+		<div class="card-body">
+			<form>
+
+				<div class="form-group">
+					<label for="id"> ID: </label>
+					<input type="number" name="id" class="form-control" [(ngModel)]="emp.idEmpleado" readonly>
+				</div>
+
+				<div class="form-group">
+					<label for="nombre"> NOMBRE: </label>
+					<input type="text" name="nombre" class="form-control" [(ngModel)]="emp.nombre" readonly>
+				</div>
+
+				<div class="form-group">
+					<label for="edad"> EDAD: </label>
+					<input type="number" name="edad" class="form-control" [(ngModel)]="emp.edad" readonly>
+				</div>
+
+				<div class="form-group">
+					<label for="puesto"> PUESTO: </label>
+					<input type="text" name="puesto" class="form-control" [(ngModel)]="emp.puesto" readonly>
+				</div>	
+				
+				<div class="form-group">
+					<label for="dep"> DEPARTAMENTO: </label>
+					<input type="text" name="dep" class="form-control" [(ngModel)]="emp.depId.nombre" readonly>
+				</div>
+
+				<br>
+				<button class="btn btn-outline-dark" (click)="eliminar()">
+					ELIMINAR
+				</button>
+				<button class="btn btn-outline-dark" style="margin-left: 15px" (click)="cancelar()">
+					CANCELAR
+				</button>
+
+			</form>
+		</div>
+	</div>
+</div>

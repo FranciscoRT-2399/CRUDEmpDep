@@ -1,1 +1,57 @@
-<p>listar works!</p>
+<div class="container">
+  <div class="card">
+    <div class="card-header text-center">
+      <h3>EMPLEADOS</h3>
+    </div>
+    <div class="input-group">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Ingresa el puesto"
+        aria-label="Buscar"
+        [(ngModel)]="empleado.puesto"
+        (ngModelChange)="buscarPorPuesto($event)"
+        aria-describedby="boton-buscar"
+      />
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr class="text-center">
+            <th>ID EMPLEADO</th>
+            <th>NOMBRE</th>
+            <th>EDAD</th>
+            <th>PUESTO</th>
+            <th>DEPARTAMENTO</th>
+            <th>ACCIONES</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          @for (empleado of empleados; track empleado.idEmpleado) {
+          <tr class="text-center">
+            <td>{{ empleado.idEmpleado }}</td>
+            <td>{{ empleado.nombre }}</td>
+            <td>{{ empleado.edad }}</td>
+            <td>{{ empleado.puesto }}</td>
+            <td>{{ empleado.depId.nombre }}</td>
+            <td>
+              <button class="btn btn-outline-dark" (click)="editar(empleado)">
+                EDITAR
+              </button>
+              <button
+                class="btn btn-outline-dark"
+                (click)="eliminar(empleado)"
+                style="margin-left: 15px"
+              >
+                ELIMINAR
+              </button>
+            </td>
+          </tr>
+          }@empty {
+          <td colspan="6" style="text-align: center">NO EXISTE REGISTROS</td>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

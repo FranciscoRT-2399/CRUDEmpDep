@@ -1,1 +1,50 @@
-<p>guardar works!</p>
+<div class="container">
+	<div class="card">
+		<div class="card-header text-center">
+			<h3>AGREGAR EMPLEADOS</h3>
+		</div>
+		<div class="card-body">
+			<form>
+				<div class="form-group">
+					<label for="id"> ID: </label>
+					<input type="number" class="form-control" name="id" [(ngModel)]="emp.idEmpleado" />
+				</div>
+				<div class="form-group">
+					<label for="nombre"> NOMBRE </label>
+					<input type="text" name="nombre" class="form-control" [(ngModel)]="emp.nombre" />
+				</div>
+
+				<div class="form-group">
+					<label for="edad"> EDAD: </label>
+					<input type="number" class="form-control" name="edad" [(ngModel)]="emp.edad" />
+
+					<div class="form-group">
+						<label for="puesto"> PUESTO: </label>
+						<input type="text" name="puesto" class="form-control" [(ngModel)]="emp.puesto" />
+					</div>
+
+					<div class="form-group">
+						<label for="dep"> DEPARTAMENTO: </label>
+						<select name="dep" class="form-control" [(ngModel)]="emp.depId">
+							<option [ngValue]="depa">SELECCIONE UNA OPCION</option>
+							@for (depa of departamentos; track depa.idDep) {
+							<option [ngValue]="depa">{{ depa.nombre }}</option>
+							}@empty {
+							<option [ngValue]="undefined">
+								NO EXISTE NINGUN DEPARTAMENTO
+							</option>
+							}
+						</select>
+					</div>
+					<br />
+					<button class="btn btn-outline-dark" (click)="guardar()">
+						GUARDAR
+					</button>
+					<button class="btn btn-outline-dark" style="margin-left: 15px" (click)="cancelar()">
+						CANCELAR
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
