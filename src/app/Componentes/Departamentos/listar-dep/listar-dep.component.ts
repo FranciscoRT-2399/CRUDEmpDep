@@ -20,6 +20,7 @@ export class ListarDepComponent implements OnInit {
 
   departamentos!: Departamentos[];
   depa: Departamentos = new Departamentos();
+	depaBuscado : Departamentos = new Departamentos();
 
   listar() {
     this.service.listarDep().subscribe((data) => {
@@ -39,10 +40,12 @@ export class ListarDepComponent implements OnInit {
 
   buscarPorNombre(nombre: String) {
     if (nombre.trim() == '') {
-      this.listar();
+      this.depaBuscado = { idDep : 0, nombre : ''};
     } else {
+			console.log(nombre);
       this.service.buscarPorNombre(nombre).subscribe((data) => {
-        this.depa = data;
+        this.depaBuscado = data;
+				console.log(this.depaBuscado);
       });
     }
   }
